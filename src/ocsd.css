@@ -1,0 +1,26 @@
+#navbar {
+    position:absolute;
+    top:-2.5vh;
+    left:-5.1vw;
+
+    background:black;
+    width:100vw;
+
+    display:flex;
+    justify-content: space-between;
+}
+
+#navbar > * {
+    flex: 1;
+
+    background:white;
+    border: 2px solid black;
+
+    color:black;
+    text-align: center;
+    text-decoration: none;
+}
+
+#navbar > *:hover {
+    flex: 2;
+}

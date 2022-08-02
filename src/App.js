@@ -1,35 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Navbar from './components/navbar';
+import Home from './components/home';
+
+import './ocsd.css'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        {callAPI()}
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <BrowserRouter>
+
+        <Navbar />
+
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
+        </Routes>
+
+      </BrowserRouter>
+
     </div>
   );
-}
-
-function callAPI() {
-   
-  const LOCAL_URL = 'http://localhost:3001';
-  // const HEROKU_URL = 'https://<>/herokuapp.com';
-  fetch(LOCAL_URL, { method: 'GET' })
-    .then(response => response.json())
-    .then(json => alert(JSON.stringify(json.data)));
 }
 
 export default App;
