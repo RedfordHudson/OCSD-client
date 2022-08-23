@@ -1,0 +1,98 @@
+html, body {
+    width:100%;
+}
+
+div {border: 2px solid red;}
+ul {border: 2px solid blue;}
+li {border: 2px solid green;}
+
+div, ul {
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+/* === [ Logos ] === */
+
+#logos {
+    display:flex;
+}
+
+#logos > li {
+    list-style: none;
+    width: 10vw;
+}
+
+#logos img {
+    width:100%;
+}
+
+/* === [ Partners, Sponsors, Products ] === */
+
+#partners, #sponsors, #products {
+    display:flex;
+    justify-content: space-around;
+}
+
+#partners > div, #sponsors > div, #products > div {
+    width:20vw;
+}
+
+#partners img, #sponsors img, #products img {
+    width:100%;
+}
+
+/* === [ Timeline ] === */
+
+#timeline * {
+    margin: 0 auto;
+}
+
+/* === [ Newsletter ] === */
+
+#newsletter {
+    
+}
+
+#newsletter * {
+    text-align: center;
+}
+
+#newsletter > form {
+    display:flex;
+    flex-direction: column;
+
+    width: 50vw;
+    margin: 0 auto;
+}
+
+/* === [ Bottom Navbar ] === */
+
+#bottomNavbar {
+    display:flex;
+    flex-wrap: wrap;
+}
+
+#bottomNavbar > li {
+    list-style: none;
+    width: 49%;
+    
+    text-align: center;
+}
+
+/* === [ Contacts ] === */
+
+#contacts {
+    display: flex;
+}
+
+#contacts > li {
+    list-style: none;
+    text-align: center;
+}
+
+/* === [ Copyright ] === */
+
+#copyright {
+    text-align: center;
+}

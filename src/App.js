@@ -3,8 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Home from './components/home';
 
-import './ocsd.css'
-
 function App() {
   return (
     <div className="App">

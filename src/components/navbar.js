@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import '../styles/navbar.css'
 
 function Navbar () {
 
-    const pages = ['home','team','faculty','blog',
-        'contact','donate','philosophy','ocsd']
+    const pages = ['home','vision','team','faculty','partners',
+            'sponsors','products','timeline','blog','donate','contacts']
 
     const loadLinks = () => {
         return pages.map(page => {return (
