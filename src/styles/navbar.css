@@ -1,33 +1,120 @@
-#navbar {
+element {
+    --ocsd-green: #2d9f80;
+    --ocsd-dark-green: #;
+    --ocsd-orange: #f18700;
+}
+
+#header {
+    background: white;
+
+    height:20vh;
+}
+
+#header > * {
     box-sizing: border-box;
     margin:0;
     padding:0;
+}
 
-    width:100vw;
-
-    position:absolute;
-    top:0;
-    left:0;
-
-    background:black;
+#logos {
+    width: calc(3 * 20vh);
+    height: 100%;
 
     display:flex;
     justify-content: space-between;
 }
 
-#navbar > * {
+#logos > li {
+    list-style: none;
+    flex: 1;
+}
+
+#logos img {
+    max-width:100%;
+    max-height:100%;
+}
+
+/* === [ Navbar ] === */
+
+.reveal-navbar {
+    /* visibility: hidden; */
+
+    position:absolute;
+    right:5vw;
+    top:5vh;
+
+    background-color: #2d9f80;
+    z-index: 10;
+
+    border-radius: 30px;
+    color:white;
+    transition: background-color .3s;
+
+    z-index: 2;
+}
+
+.reveal-navbar:hover {
+    cursor:pointer;
+
+    background-color: #153e3e;
+}
+
+.reveal-navbar > div {
+    padding:10px;
+}
+
+#navbar, #background-filter { 
+    visibility: hidden;
+    position:absolute;
+    z-index: 1;
+}
+
+#background-filter {
+    background-color: #2d9f80;
+    top:0;
+    height: 100vh;
+    width: 100vw;
+    opacity: .5;
+}
+
+#navbar {
+    background-color: white;
+    border: 2px solid #2d9f80;
+    
+    top:20vh;
+    height: 60vh;
+
+    left: 30vw;
+    width: 40vw;
+
+    border-radius: 20px;
+}
+
+#navbar > ul {
+    height: 100%;
+    margin:0;
+    padding:0;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 50%;
+    margin: 0 auto;
+}
+
+#navbar > ul > * {
     box-sizing: border-box;
 
     flex: 1;
-
-    background:white;
-    border: 5px solid black;
+    height: 100%;
 
     color:black;
     text-align: center;
     text-decoration: none;
+    border-bottom: 3px solid white;
+
 }
 
-#navbar > *:hover {
-    flex: 2;
+#navbar > ul > *:hover {
+    border-bottom: 3px solid #2d9f80;
 }

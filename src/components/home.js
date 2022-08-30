@@ -1,76 +1,100 @@
 import { Link } from 'react-router-dom';
 import '../styles/home.css'
+import { SocialIcon } from 'react-social-icons';
 
 function Home () {
 
     const mediaPath = process.env.PUBLIC_URL+'/media/';
     
-    const logos = () => {
-        const partners = ['OCSD','PJHM','UCI'];
-
-        return <ul id='logos'>
-            {partners.map(partner => {return <li key={partner}>
-                <img src={mediaPath+'/logos/'+partner+'.jpg'}
-                    alt={partner} />
-            </li>})}
-        </ul>
-    }
-    
     const hook = () => {
         return <div id='hook'>
-            HOOK
+            <div>
+                Is it possible to go negative?
+            </div>
         </div>
     }
     
     const teaser = () => {
+        const teasers = [
+            {
+                image:'1',
+                text:'By using materials from the local landscape, we can reduce manufacturing costs and bring'
+                  + ' construction to the residents.'
+            },
+            {
+                image:'2',
+                text:'Using smart technologies and artificial intelligence, our home automatically adjusts'
+                  + ' its temperature and humidity to the residents\' needs.'
+            },
+            {
+                image:'3',
+                text:'Our house operates entirely on electricity and sustainable fuel sources, and emits absolutely'
+                  + ' no excess carbon dioxide to the surrounding environment.'
+            },
+        ]
+
         return <div id='teaser'>
-            TEASER
+            <ul>
+                {teasers.map(teaser => {
+                    var { image,text } = teaser
+                    
+                    return <div key={image} className='teaser-card'>
+                        <div><p>{text}</p></div>
+                        <img src={mediaPath+'/images/'+image+'.jpeg'}
+                            alt={image} />
+                    </div>})}
+            </ul>
         </div>
     }
     
     const partners = () => {
         const partners = ['OCSD','PJHM','UCI'];
 
-        return <ul id='partners'>
-            {partners.map(partner => {return <div key={partner}>
-                <Link to={'partners/'+partner}>
-                    <img src={mediaPath+'/logos/'+partner+'.jpg'}
-                        alt={partner} />
-                </Link>
-            </div>})}
-        </ul>
+        return <div id='partners' className='cards'>
+            <p>Our <span>Partners</span></p>
+            <ul>
+                {partners.map(partner => {return <Link to={'partners/'+partner}>
+                    <div key={partner} className='card'>
+                        <img src={mediaPath+'/logos/'+partner+'.jpg'}
+                            alt={partner} />
+                        <div><p>{partner}</p></div>
+                    </div>
+                </Link>})}
+            </ul>
+        </div>
     }
     
     const sponsors = () => {
         const sponsors = ['sponsor1','sponsor2'];
 
-        return <ul id='sponsors'>
-            {sponsors.map(sponsor => {return <div key={sponsor}>
-                <Link to={'sponsors/'+sponsor}>
-                    <img src={mediaPath+'/logos/'+sponsor+'.jpg'}
-                        alt={sponsor} />
-                </Link>
-            </div>})}
-        </ul>
+        return <div id='sponsors' className='cards'>
+            <p>Our <span>Sponsors</span></p>
+            <ul>
+                {sponsors.map(sponsor => {return <Link to={'sponsors/'+sponsor}>
+                    <div key={sponsor} className='card'>
+                        <img src={mediaPath+'/logos/'+sponsor+'.jpeg'}
+                            alt={sponsor} />
+                        <div><p>{sponsor}</p></div>
+                    </div>
+                </Link>})}
+            </ul>
+        </div>
     }
     
-    const products = () => {
-        const products = ['product1','product2'];
+    const technology = () => {
+        const technology = ['tech1','tech2'];
 
-        return <ul id='products'>
-            {products.map(product => {return <div key={product}>
-                <Link to={'products/'+product}>
-                    <img src={mediaPath+'/logos/'+product+'.jpg'}
-                        alt={product} />
-                </Link>
-            </div>})}
-        </ul>
-    }
-    
-    const timeline = () => {
-        return <div id='timeline'>
-            <img src={mediaPath+'/timeline.jpg'}
-                alt='timeline' />
+        return <div id='technology' className='cards'>
+            <p>Our <span>Technology</span></p>
+            <ul>
+                {technology.map(tech => {return <Link to={'technology/'+tech}>
+                    <div key={tech} className='card'>
+                        <img src={mediaPath+'/logos/'+tech+'.jpeg'}
+                            alt={tech} />
+                        <div><p>{tech}</p></div>
+                    </div>
+                </Link>})}
+            </ul>
         </div>
     }
     
@@ -95,7 +119,7 @@ function Home () {
     
     const bottomNavbar = () => {
         const pages = ['home','vision','team','faculty','partners',
-            'sponsors','products','timeline','blog','donate','contacts']
+            'sponsors','technology','timeline','blog','donate','contacts']
 
         return <ul id='bottomNavbar'>
             {pages.map(page => {
@@ -125,6 +149,7 @@ function Home () {
         // </a>
 
         return <ul id='contacts'>
+            
             {Object.entries(contacts).map(contact => {
                 var platform = contact[0];
                 var link = contact[1];
@@ -133,7 +158,7 @@ function Home () {
                     <a href={prefix+link}
                         target="_blank"
                         rel="noreferrer">
-                        {platform}
+                        <SocialIcon network={platform} bgColor='#f18700'/>
                     </a>
                 </li>})}
         </ul>
@@ -144,20 +169,25 @@ function Home () {
             © 2022 The Official UCI Sustainability Decathlon Team. ALL RIGHTS RESERVED.
         </div>
     }
+
+    const footer = () => {
+        return <div id='footer'>
+            {newsletter()}
+            {bottomNavbar()}
+            {contacts()}
+            {copyright()}
+        </div>
+    }
     
     return ( <>
     
-        {logos()}
         {hook()}
         {teaser()}
         {partners()}
         {sponsors()}
-        {products()}
-        {timeline()}
-        {newsletter()}
-        {bottomNavbar()}
-        {contacts()}
-        {copyright()}
+        {technology()}
+        
+        {footer()}
     
     </> );
 }
